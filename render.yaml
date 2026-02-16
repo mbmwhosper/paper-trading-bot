@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: paper-trading-bot
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ALPACA_API_KEY
+        sync: false
+      - key: ALPACA_SECRET_KEY
+        sync: false
+      - key: UI_PORT
+        value: 10000
+    plan: free
+    healthCheckPath: /api/account
