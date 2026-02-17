@@ -1,39 +1,40 @@
-// Trading Configuration
+// Trading Configuration - $10 Challenge Mode
 module.exports = {
-  // Risk Limits
-  MAX_POSITION_SIZE: 100,      // $100 max per trade
-  MAX_LOSS_PER_TRADE: 20,      // $20 stop loss
-  MAX_TRADES_PER_DAY: 5,       // Max 5 trades daily
-  MIN_TRADE_INTERVAL: 600000,  // 10 minutes between trades
+  // Risk Limits - AGGRESSIVE $10 CHALLENGE
+  MAX_POSITION_SIZE: 10,       // $10 max per trade (changed from $100)
+  MAX_LOSS_PER_TRADE: 3,       // $3 stop loss (30% max loss on $10)
+  MAX_TRADES_PER_DAY: 10,      // Max 10 trades daily (double normal)
+  MIN_TRADE_INTERVAL: 300000,  // 5 minutes between trades (faster)
   
-  // Strategy Parameters
-  MOMENTUM_THRESHOLD: 0.02,    // 2% move
-  VOLUME_MULTIPLIER: 1.5,      // 1.5x average volume
-  MIN_PRICE: 5,                // $5 minimum
-  MAX_PRICE: 100,              // $100 maximum
-  MIN_MARKET_CAP: 1000000000,  // $1B market cap
+  // Strategy Parameters - MORE AGGRESSIVE
+  MOMENTUM_THRESHOLD: 0.015,   // 1.5% move (lower threshold = more trades)
+  VOLUME_MULTIPLIER: 1.3,      // 1.3x average volume (easier to qualify)
+  MIN_PRICE: 2,                // $2 minimum (cheaper stocks = more shares)
+  MAX_PRICE: 50,               // $50 maximum (focus on movers)
+  MIN_MARKET_CAP: 500000000,   // $500M market cap (still legit companies)
   
-  // Trading Hours
+  // Trading Hours - MAXIMIZE TIME
   MARKET_OPEN: "09:30",
   MARKET_CLOSE: "16:00",
-  NO_TRADE_START: "09:30",     // No trades first 30 min
-  NO_TRADE_END: "15:30",       // No trades last 30 min
+  NO_TRADE_START: "09:30",     // Trade immediately at open (more aggressive)
+  NO_TRADE_END: "15:55",       // Trade until 5 min before close
   
-  // Profit/Loss
-  PROFIT_TARGET: 0.05,         // 5% profit target
-  EOD_CLOSE: true,             // Close positions EOD
+  // Profit/Loss - QUICK SCALPS
+  PROFIT_TARGET: 0.04,         // 4% profit target (lower = faster exits)
+  EOD_CLOSE: true,             // MUST close by 4 PM (challenge rule)
   
-  // Universe
+  // Universe - MORE VOLATILE STOCKS ADDED
   TICKERS: [
-    "AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "META", "TSLA", "BRK.B", "UNH", "JPM",
-    "V", "JNJ", "WMT", "PG", "MA", "HD", "CVX", "MRK", "LLY", "ABBV",
-    "PEP", "KO", "BAC", "AVGO", "PFE", "TMO", "COST", "DIS", "ABT", "ACN",
-    "WFC", "CMCSA", "ADBE", "VZ", "DHR", "NKE", "TXN", "CRM", "LIN", "PM",
-    "NEE", "RTX", "AMD", "AMGN", "HON", "QCOM", "SPGI", "UPS", "IBM", "LOW",
-    "INTU", "UNP", "BMY", "CAT", "DE", "GS", "LMT", "GILD", "AMAT", "TJX",
-    "SBUX", "PLD", "ISRG", "CVS", "EL", "MDLZ", "ADI", "BKNG", "SYK", "TGT",
-    "REGN", "SCHW", "ZTS", "CI", "SO", "BDX", "FIS", "LRCX", "CL", "CB",
-    "EQIX", "VRTX", "TMUS", "MMC", "ITW", "PGR", "EW", "C", "BSX", "NSC",
-    "APD", "AON", "USB", "PNC", "ETN", "COP", "ICE", "MCO", "GM", "F"
+    // High volatility tech
+    "TSLA", "AMD", "NVDA", "COIN", "PLTR", "HOOD", "SOFI", "RIVN", "LCID",
+    // Meme/momentum
+    "GME", "AMC", "BB", "NOK", "BBBY",
+    // Regular S&P with high beta
+    "AAPL", "MSFT", "META", "NFLX", "CRM", "UBER", "ABNB", "SNOW", "ZM",
+    "SHOP", "SQ", "PYPL", "ROKU", "TWLO", "DDOG", "NET", "FSLY",
+    // Crypto-adjacent
+    "MSTR", "MARA", "RIOT", "HUT", "BTBT",
+    // Small cap movers
+    "SPCE", "ASTS", "RKLB", "JOBY", "ACHR"
   ]
 };
